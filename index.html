@@ -85,7 +85,7 @@
   
   <script src="js/main.js"></script>
    
-<!-- Reproductor de audio con botones personalizados alineados y fondo transparente -->
+<!-- Reproductor con botones dorados personalizados -->
 <div style="position: fixed; bottom: 20px; left: 20px; background: transparent; padding: 5px; z-index: 999;">
   <audio id="audioPlayer" autoplay muted style="display: none;">
     <source src="audio/cancion1.mp3" type="audio/mpeg">
@@ -93,9 +93,9 @@
   </audio>
 
   <div style="display: flex; align-items: center; gap: 10px;">
-    <button onclick="prevSong()" title="Anterior" style="background: none; border: none; font-size: 24px; color: gray;">⏮️</button>
-    <button id="playPauseBtn" title="Reproducir/Pausar" style="background: none; border: none; font-size: 24px; color: gray;">⏸️</button>
-    <button onclick="nextSong()" title="Siguiente" style="background: none; border: none; font-size: 24px; color: gray;">⏭️</button>
+    <button onclick="prevSong()" title="Anterior" style="background: none; border: none; font-size: 24px; color: #FFD700;">⏮️</button>
+    <button id="playPauseBtn" title="Reproducir/Pausar" style="background: none; border: none; font-size: 24px; color: #FFD700;">⏸️</button>
+    <button onclick="nextSong()" title="Siguiente" style="background: none; border: none; font-size: 24px; color: #FFD700;">⏭️</button>
   </div>
 </div>
 
@@ -109,7 +109,6 @@
   const player = document.getElementById('audioPlayer');
   const playPauseBtn = document.getElementById('playPauseBtn');
 
-  // Autoplay con sonido al cargar
   window.addEventListener('load', () => {
     player.muted = false;
     player.play().catch(e => {
