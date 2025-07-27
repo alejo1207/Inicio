@@ -97,10 +97,27 @@
 
 
 
-<div style="display: flex; align-items: center; gap: 10px;">
-  <button onclick="prevSong()" title="Anterior" style="background: none; border: none; font-size: 15px; color: #004466;">⏮️</button>
-  <button id="playPauseBtn" title="Reproducir/Pausar" style="background: none; border: none; font-size: 15px; color: #004466;">⏸️</button>
-  <button onclick="nextSong()" title="Siguiente" style="background: none; border: none; font-size: 15px; color: #004466;">⏭️</button>
+<div style="display: flex; align-items: center; gap: 12px;">
+  <!-- Anterior -->
+  <button onclick="prevSong()" title="Anterior" class="audio-btn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M11 18V6l-8.5 6L11 18zM13 6v12h2V6h-2z"/>
+    </svg>
+  </button>
+
+  <!-- Play/Pause -->
+  <button id="playPauseBtn" title="Reproducir/Pausar" class="audio-btn">
+    <svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+  </button>
+
+  <!-- Siguiente -->
+  <button onclick="nextSong()" title="Siguiente" class="audio-btn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M5 6v12l8.5-6L5 6zM15 6v12h2V6h-2z"/>
+    </svg>
+  </button>
 </div>
 
 <script>
