@@ -59,6 +59,18 @@
   color: #fff;     /* o el color que estés usando */
   text-align: center;
 }
+
+.audio-label {
+  position: fixed;
+  bottom: 110px;             /* ajusta la distancia sobre los controles */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;           /* tu tamaño preferido */
+  color: #fff;               /* o el color que elijas */
+  font-family: 'Great Vibes', cursive;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  z-index: 9999;
+}
 	
 @media (min-width: 768px) {
   .subir-boton-pc {
@@ -109,9 +121,15 @@
                 Invitación
 	</a>
 			</div>
-		<span class="subheading">Nuestras canciones</span>	
+		 	
 		</section>
+<!-- --- Insertamos aquí el texto --- -->
+<div class="audio-label">
+  Nuestras canciones
+</div>
 
+<!-- Reproductor con botones dorados personalizados -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: transparent; padding: 5px; z-index: 999;">
     
   <!-- loader -->
 
