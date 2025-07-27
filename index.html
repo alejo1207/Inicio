@@ -145,27 +145,39 @@
 
 <script>
   const songs = [
-  'audio/cancion1.mp3',
-  'audio/cancion2.mp3',
-  'audio/cancion3.mp3'
-];
+    'audio/cancion1.mp3',
+    'audio/cancion2.mp3',
+    'audio/cancion3.mp3'
+  ];
 
-let currentSong = 0;
-const player = document.getElementById("musica");
+  let currentSong = 0;
+  const player = document.getElementById("musica");
+  const playIcon = document.getElementById('play-icon');
+  const playPauseBtn = document.getElementById("playPauseBtn");
 
-function nextSong() {
-  currentSong = (currentSong + 1) % songs.length;
-  player.src = songs[currentSong];
-  player.play();
-  playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
-}
+  function nextSong() {
+    currentSong = (currentSong + 1) % songs.length;
+    player.src = songs[currentSong];
+    player.play();
+    playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
+  }
 
-function prevSong() {
-  currentSong = (currentSong - 1 + songs.length) % songs.length;
-  player.src = songs[currentSong];
-  player.play();
-  playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
-}
+  function prevSong() {
+    currentSong = (currentSong - 1 + songs.length) % songs.length;
+    player.src = songs[currentSong];
+    player.play();
+    playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
+  }
+
+  playPauseBtn.addEventListener('click', () => {
+    if (player.paused) {
+      player.play();
+      playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
+    } else {
+      player.pause();
+      playIcon.setAttribute('d', 'M8 5v14l11-7z'); // play
+    }
+  });
 
   window.addEventListener('load', () => {
     player.muted = false;
@@ -173,34 +185,6 @@ function prevSong() {
       console.log("Autoplay bloqueado:", e);
     });
   });
-
- const playIcon = document.getElementById('play-icon');
-
-playPauseBtn.addEventListener('click', () => {
-  if (player.paused) {
-    player.play();
-    playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
-  } else {
-    player.pause();
-    playIcon.setAttribute('d', 'M8 5v14l11-7z'); // play
-  }
-});
-
-  function loadSong(index) {
-    player.src = songs[index];
-    player.play();
-    playPauseBtn.textContent = '⏸️';
-  }
-
-  function nextSong() {
-    currentSong = (currentSong + 1) % songs.length;
-    loadSong(currentSong);
-  }
-
-  function prevSong() {
-    currentSong = (currentSong - 1 + songs.length) % songs.length;
-    loadSong(currentSong);
-  }
 </script>
 
 	  
