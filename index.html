@@ -122,15 +122,50 @@
 	</a>
 			</div>
 		 	
-		</section>
-<!-- --- Insertamos aquí el texto --- -->
+</section>
+
+<!-- Texto "Nuestras canciones" -->
 <div class="audio-label">
   Nuestras canciones
 </div>
 
 <!-- Reproductor con botones dorados personalizados -->
 <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: transparent; padding: 5px; z-index: 999;">
-    
+  <audio id="audio" controls style="width: 300px;">
+    <source src="source/audio.mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+</div>
+
+<!-- Botón de invitación -->
+<a href="https://alejo1207.github.io/invitacion/"
+   class="btn mt-4 subir-boton-pc"
+   style="position: absolute; bottom: 5%; left: 50%; transform: translateX(-50%);">
+  Invitación
+</a>
+
+<!-- Estilos adicionales -->
+<style>
+  /* Texto sobre el reproductor */
+  .audio-label {
+    position: fixed;
+    bottom: 90px; /* Ajusta según la altura del reproductor */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #fff;
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+
+  /* Subir botón en celulares */
+  @media screen and (max-width: 768px) {
+    .subir-boton-pc {
+      bottom: 20% !important; /* Puedes ajustar a 25%, 30% si deseas más espacio */
+    }
+  }
+</style>		
   <!-- loader -->
 
 
