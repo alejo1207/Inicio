@@ -87,15 +87,6 @@
   <script src="js/main.js"></script>
 
 
-<button id="activar-musica"
-        onclick="activarMusica()"
-        style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
-               z-index: 1000; padding: 10px 24px; font-size: 16px; font-family: 'Merienda', cursive;
-               background-color: rgba(255, 255, 255, 0.25); border: 2px solid #87CEEB;
-               border-radius: 30px; color: #004466; cursor: pointer;
-               backdrop-filter: blur(6px); box-shadow: 0 8px 20px rgba(135, 206, 235, 0.3);">
-  Colocar música
-</button>
 	  
 <!-- Reproductor con botones dorados personalizados -->
 <div style="position: fixed; bottom: 20px; left: 20px; background: transparent; padding: 5px; z-index: 999;">
@@ -159,13 +150,6 @@
   }
 </script>
 
-<script>
-  function activarMusica() {
-    const musica = document.getElementById('musica');
-    musica.play();
-    document.getElementById('activar-musica').style.display = 'none';
-  }
-</script>
 	  
   </body>
 </html>
