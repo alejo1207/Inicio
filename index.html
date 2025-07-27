@@ -23,6 +23,30 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
+
+.audio-btn {
+  background: none;
+  border: none;
+  color: #FFD700;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.audio-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+	
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     
 	
@@ -90,31 +114,30 @@
 	  
 <!-- Reproductor con botones dorados personalizados -->
 <div style="position: fixed; bottom: 20px; left: 20px; background: transparent; padding: 5px; z-index: 999;">
-  <audio id="audioPlayer" autoplay muted style="display: none;">
-    <source src="audio/cancion1.mp3" type="audio/mpeg">
-    Tu navegador no soporta la reproducción de audio.
-  </audio>
+  <audio id="musica" loop>
+  <source src="audio/cancion1.mp3" type="audio/mpeg">
+</audio>
 
 
 
-<div style="display: flex; align-items: center; gap: 12px;">
-  <!-- Anterior -->
+<div class="audio-controls">
+  <!-- Botón anterior -->
   <button onclick="prevSong()" title="Anterior" class="audio-btn">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M11 18V6l-8.5 6L11 18zM13 6v12h2V6h-2z"/>
     </svg>
   </button>
 
-  <!-- Play/Pause -->
+  <!-- Botón play/pause -->
   <button id="playPauseBtn" title="Reproducir/Pausar" class="audio-btn">
-    <svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M8 5v14l11-7z"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path id="play-icon" d="M8 5v14l11-7z"/>
     </svg>
   </button>
 
-  <!-- Siguiente -->
+  <!-- Botón siguiente -->
   <button onclick="nextSong()" title="Siguiente" class="audio-btn">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M5 6v12l8.5-6L5 6zM15 6v12h2V6h-2z"/>
     </svg>
   </button>
@@ -122,13 +145,27 @@
 
 <script>
   const songs = [
-    'audio/cancion1.mp3',
-    'audio/cancion2.mp3',
-    'audio/cancion3.mp3'
-  ];
-  let currentSong = 0;
-  const player = document.getElementById('audioPlayer');
-  const playPauseBtn = document.getElementById('playPauseBtn');
+  'audio/cancion1.mp3',
+  'audio/cancion2.mp3',
+  'audio/cancion3.mp3'
+];
+
+let currentSong = 0;
+const player = document.getElementById("musica");
+
+function nextSong() {
+  currentSong = (currentSong + 1) % songs.length;
+  player.src = songs[currentSong];
+  player.play();
+  playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
+}
+
+function prevSong() {
+  currentSong = (currentSong - 1 + songs.length) % songs.length;
+  player.src = songs[currentSong];
+  player.play();
+  playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
+}
 
   window.addEventListener('load', () => {
     player.muted = false;
@@ -137,17 +174,17 @@
     });
   });
 
-  player.addEventListener('ended', nextSong);
+ const playIcon = document.getElementById('play-icon');
 
-  playPauseBtn.addEventListener('click', () => {
-    if (player.paused) {
-      player.play();
-      playPauseBtn.textContent = '⏸️';
-    } else {
-      player.pause();
-      playPauseBtn.textContent = '▶️';
-    }
-  });
+playPauseBtn.addEventListener('click', () => {
+  if (player.paused) {
+    player.play();
+    playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); // pausa
+  } else {
+    player.pause();
+    playIcon.setAttribute('d', 'M8 5v14l11-7z'); // play
+  }
+});
 
   function loadSong(index) {
     player.src = songs[index];
