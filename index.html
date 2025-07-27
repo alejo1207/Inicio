@@ -87,6 +87,15 @@
   <script src="js/main.js"></script>
 
 
+
+	  
+<!-- Reproductor con botones dorados personalizados -->
+<div style="position: fixed; bottom: 20px; left: 20px; background: transparent; padding: 5px; z-index: 999;">
+  <audio id="audioPlayer" autoplay muted style="display: none;">
+    <source src="audio/cancion1.mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+
 <button id="activar-musica"
         onclick="activarMusica()"
         style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
@@ -96,15 +105,8 @@
                backdrop-filter: blur(6px); box-shadow: 0 8px 20px rgba(135, 206, 235, 0.3);">
   Colocar música
 </button>
-	  
-<!-- Reproductor con botones dorados personalizados -->
-<div style="position: fixed; bottom: 20px; left: 20px; background: transparent; padding: 5px; z-index: 999;">
-  <audio id="audioPlayer" autoplay muted style="display: none;">
-    <source src="audio/cancion1.mp3" type="audio/mpeg">
-    Tu navegador no soporta la reproducción de audio.
-  </audio>
 
-  <div style="display: flex; align-items: center; gap: 10px;">
+<div style="display: flex; align-items: center; gap: 10px;">
     <button onclick="prevSong()" title="Anterior" style="background: none; border: none; font-size: 24px; color: #FFD700;">⏮️</button>
     <button id="playPauseBtn" title="Reproducir/Pausar" style="background: none; border: none; font-size: 24px; color: #FFD700;">⏸️</button>
     <button onclick="nextSong()" title="Siguiente" style="background: none; border: none; font-size: 24px; color: #FFD700;">⏭️</button>
